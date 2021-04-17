@@ -1,11 +1,25 @@
 Package: EpiNOAA
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Package to access environmental data from the National Oceanic and Atmospheric Administration.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Yadav",
+           family = "Shrikanth",
+           role = c("aut", "cre"),
+           email = "sh5924th@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Packag to access to environmental data from the National Oceanic 
+and Atmospheric Administration (NOAA) for streamlined use in health models 
+developed in R. The package includes functions and wrappers for basic 
+data-wrangling tasks, such as population weighting and interpolation. 
+The package is developed as a complement to the NOAA Climate.gov data page 
+originally developed for Infectious Disease modeling of COVID-19, but extends 
+to other health models and modelers.
+License: `use_mit_license()`
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
