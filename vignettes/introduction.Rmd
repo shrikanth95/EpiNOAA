@@ -7,6 +7,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
+This package facilitates access to environmental data from the National Oceanic and Atmospheric Administration (NOAA) for streamlined use in health models developed in R. The package includes functions and wrappers for basic data-wrangling tasks, such as population weighting and interpolation. The package is developed as a complement to the NOAA Climate.gov data page originally developed for Infectious Disease modeling of COVID-19, but extends to other health models and modelers. The current version of the package supports temperatures (Average, Maximum and Minimum) and Precipitation.
+
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -15,19 +19,53 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-# library(EpiNOAA)
+library(EpiNOAA)
+library(dplyr)
+library(tigris)
+# library(ggplot2)
 ```
 
 
-This package facilitates access to environmental data from the National Oceanic and Atmospheric Administration (NOAA) for streamlined use in health models developed in R. The package includes functions and wrappers for basic data-wrangling tasks, such as population weighting and interpolation. The package is developed as a complement to the NOAA Climate.gov data page originally developed for Infectious Disease modeling of COVID-19, but extends to other health models and modelers.
 
-
-This a test tutorial with the `DailyTemperatures` dataset.
-
+As data is stored on the county level, the `get_data_dictionary()` function returns a list containing state and county level meta-data.  Columns `Temp_avg`,`Temp_min`, `Temp_max`, `Precipitation` show the coverage (i.e. zero indicates all values are missing and one indicates no values missing.).
 
 ```{r}
-dailyTemperatures = read.csv(file = "E:/SecureData/CTL/R package/DailyTemperatures.csv")
-
-
+EpiNOAA_meta <- get_data_dictionary()
+head(EpiNOAA_meta$County_Level)
+head(EpiNOAA_meta$State_level)
 ```
+
+
+The `data(fips_codes)` from the `tigris` package is used to load a `data.frame` with states, counties and FIPS codes. The example below extracts data from both the Carolinas from a given start and end date.
+
+```{r}
+data(fips_codes)  # load FIPS Codes
+fips_codes$County_FIPS_codes = as.numeric(paste(fips_codes$state_code,fips_codes$county_code,sep = "")) # Create the joint state-county FIPS code
+NC_fips_codes <- filter(fips_codes,state == "NC")
+
+NC_data <- get_daily_FIPS_averages(county_FIPS_codes = NC_fips_codes$County_FIPS_codes,
+                                measurements = c("Temp_avg","Temp_min", "Temp_max", "Precipitation"),
+                                start_date = "2018-09-21", end_date = "2019-09-21")
+head(NC_data)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,5 +1,6 @@
 Package: EpiNOAA
-Title: Package to access environmental data from the National Oceanic and Atmospheric Administration.
+Type: Package
+Title: Package to Access Environmental Data From NOAA
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Yadav",
@@ -7,19 +8,17 @@ Authors@R:
            role = c("aut", "cre"),
            email = "sh5924th@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Packag to access to environmental data from the National Oceanic 
-and Atmospheric Administration (NOAA) for streamlined use in health models 
-developed in R. The package includes functions and wrappers for basic 
-data-wrangling tasks, such as population weighting and interpolation. 
-The package is developed as a complement to the NOAA Climate.gov data page 
-originally developed for Infectious Disease modeling of COVID-19, but extends 
-to other health models and modelers.
-License: `use_mit_license()`
+Description: The package includes functions and wrappers for basic 
+    data-wrangling tasks, such as population weighting and interpolation. 
+    The package is developed as a complement to the NOAA Climate gov data page.
+Imports: dplyr, ggplot2, lubridate, magrittr
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    tigris
 VignetteBuilder: knitr
