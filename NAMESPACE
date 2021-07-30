@@ -2,4 +2,5 @@
 
 export(get_daily_FIPS_averages)
 export(get_data_dictionary)
+export(get_historic_data)
 importFrom(magrittr,"%>%")

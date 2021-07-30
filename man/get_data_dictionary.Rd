@@ -2,21 +2,19 @@
 % Please edit documentation in R/Source_1.R
 \name{get_data_dictionary}
 \alias{get_data_dictionary}
-\title{This function retrieves daily averages for the specified county codes or the
-state. Start and end dates are optional inputs.}
+\title{This function retrieves metadata for the raw ARC dataset.}
 \usage{
-get_data_dictionary()
+get_data_dictionary(daily_temperatures)
 }
 \arguments{
-\item{input}{No input required}
+\item{daily_temperatures}{A dataframe from the function get_daily_FIPS_averages().}
 }
 \value{
 A list with two elements county and state level with available
 meta-data, start and end dates and coverage for each measurement.
 @examples
-get_daily_averages()
+get_daily_averages(daily_temperatures)
 }
 \description{
-This function retrieves daily averages for the specified county codes or the
-state. Start and end dates are optional inputs.
+This function retrieves metadata for the raw ARC dataset.
 }

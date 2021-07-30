@@ -2,6 +2,7 @@ Package: EpiNOAA
 Type: Package
 Title: Package to Access Environmental Data From NOAA
 Version: 0.0.0.9000
+Depends: R (>= 3.5.0)
 Authors@R: 
     person(given = "Yadav",
            family = "Shrikanth",
@@ -11,14 +12,16 @@ Authors@R:
 Description: The package includes functions and wrappers for basic 
     data-wrangling tasks, such as population weighting and interpolation. 
     The package is developed as a complement to the NOAA Climate gov data page.
-Imports: dplyr, ggplot2, lubridate, magrittr
-License: MIT
+Imports: 
+    dplyr (>= 1.0.2),
+    ggplot2 (>= 3.3.3),
+    magrittr (>= 2.0.1)
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
-    knitr,
-    rmarkdown,
-    tigris
+    knitr (>= 1.33),
+    rmarkdown (>= 2.9)
 VignetteBuilder: knitr

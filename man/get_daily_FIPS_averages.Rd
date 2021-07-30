@@ -8,12 +8,10 @@ state. Start and end dates are optional inputs.}
 get_daily_FIPS_averages(
   county_FIPS_codes,
   measurements,
-  path = NULL,
+  dailyTemperatures,
   coverage = 1,
-  plot_directory = NULL,
   start_date = NULL,
-  end_date = NULL,
-  verbose = NULL
+  end_date = NULL
 )
 }
 \arguments{
@@ -23,13 +21,11 @@ get_daily_FIPS_averages(
 Temperature (Average, Minimum, Maximum) and Precipitation. Defaults to
 c("Temp_avg","Temp_min", "Temp_max", "Precipitation").}
 
-\item{path}{Relative path to the folder where the retrieved data will be
-stored. Defaults to a folder named EpiNOAA_call. TODO}
-
 \item{coverage}{Shows the fraction of data that is not missing. Defaults to 1.}
 
-\item{plot_directory}{Relative path to the folder where the time series plot
-of the daily data will be saved. Defaults to a folder named EpiNOAA_plots. TODO}
+\item{start_date}{Indicates the start date}
+
+\item{end_date}{Indicates the end date}
 }
 \value{
 Basic summary statistics.
